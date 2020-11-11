@@ -32,18 +32,18 @@ bool Graph::add_vertex( Vertex v )
 	return ret.second;
 }
 
-bool Graph::add_edge( std::string edge1, std::string edge2 )
+bool Graph::add_edge( std::string from, std::string to, Graph::Kind kind )
 {
 	bool res = false;
 	// uno, o ambos nodos, no existen
 
-	auto v1 = this->vertices.find( edge1 );
-	auto v2 = this->vertices.find( edge2 );
+	auto v1 = this->vertices.find( from );
+	auto v2 = this->vertices.find( to );
 
 	if( v1 != this->vertices.end() and v2 != this->vertices.end() ){
-
 		v1->second.add_neighbor( v2->second );
-		v2->second.add_neighbor( v1->second );
+
+      if( kind == Graph::Kind::UNDIRECTED ) v2->second.add_neighbor( v1->second );
 
 		return true;
 	}
@@ -95,7 +95,7 @@ void Graph::dfs( std::string start )
 
 }
 
-void dfs_recursive( Vertex* vertex, size_t time )
+void dfs_recursive( Vertex* v, size_t time )
 {
 
 }

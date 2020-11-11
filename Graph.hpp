@@ -42,16 +42,20 @@ private:
 	// asociamos un vértice (value) a una cadena (key):
 	// vertices[ string ] = a_vertex
 
-   void dfs_recursive( Vertex* vertex, size_t time );
+   void dfs_recursive( Vertex* v, size_t time );
    // ejecuta la parte recursiva del algoritmo. Es privada porque el cliente de
    // la clase NO tiene que saber, incluso, que existe.
 
 public:
+   enum class Kind { UNDIRECTED, DIRECTED };
+
 	Graph();
 //	Graph( std::vector<Vertex> vertices ); 
 
 	bool add_vertex( Vertex v );
-	bool add_edge( std::string edge1, std::string edge2 );
+
+   // TODO: Si el segundo, o ambos vértices no existen, entonces los crea.
+	bool add_edge( std::string from, std::string to, Graph::Kind kind = Graph::Kind::UNDIRECTED );
 
 	std::map<std::string, Vertex> *get_vertices();
 	// devuelve la "lista" de vértices (en realidad es una tabla hash, pero la podemos pensar de esa manera)
