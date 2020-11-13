@@ -95,7 +95,7 @@ void Graph::dfs( std::string start )
 
 }
 
-void dfs_recursive( Vertex* v, size_t time )
+void Graph::dfs_recursive( Vertex* v, size_t time )
 {
 
 }
