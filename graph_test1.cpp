@@ -47,15 +47,17 @@ void draw_graph( Graph& g )
    // par <key,value>
 
    file << "digraph MiGrafo {\n";
-   for( auto it = vertices->begin(); it != vertices->end(); ++it ){
+   for( auto& v : *(vertices) ){
 
-      std::string name = it->first;
+      std::string name = v.first;
+
+
       // first es el equivalente a 'key', y la 'key' en esta tabla hash es el
       // nombre del nodo. También funciona:
       //
       //          std::string name = (it->second).get_name();
 
-      std::list<Vertex> *neighbors = (it->second).get_neighbors();
+      std::list<Vertex> *neighbors = v.second.get_neighbors();
       // obtenemos la lista de vecinos del vértice de trabajo
 
       for( auto& w : *(neighbors) ){
