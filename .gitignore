@@ -12,6 +12,9 @@
 *.h~
 *.un~
 *.o
+*.dot
+*.png
+*.svg
 *.out
 *.ld
 *.map

@@ -67,5 +67,5 @@ public:
 
 	void bfs( std::string name );
 
-   size_t dfs( std::string name );
+   void dfs( std::string name );
 };
