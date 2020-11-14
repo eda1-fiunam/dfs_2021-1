@@ -42,7 +42,7 @@ private:
 	// asociamos un vértice (value) a una cadena (key):
 	// vertices[ string ] = a_vertex
 
-   void dfs_recursive( Vertex* v, size_t time );
+   size_t dfs_recursive( Vertex* v, size_t time );
    // ejecuta la parte recursiva del algoritmo. Es privada porque el cliente de
    // la clase NO tiene que saber, incluso, que existe.
 
